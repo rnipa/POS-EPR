@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>POS Finance ERP Ultimate Lifetime</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef2ff;
+padding:20px;
+}
+
+.container{
+max-width:1800px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.header h1{
+font-size:42px;
+color:#1e293b;
+font-weight:700;
+}
+
+.header p{
+color:#64748b;
+margin-top:8px;
+}
+
+.card{
+background:white;
+padding:22px;
+border-radius:24px;
+margin-bottom:22px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.card h2{
+margin-bottom:15px;
+color:#1e293b;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.box{
+padding:24px;
+border-radius:22px;
+color:white;
+text-align:center;
+}
+
+.box h3{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.box p{
+font-size:30px;
+font-weight:bold;
+}
+
+.blue{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.green{
+background:linear-gradient(135deg,#059669,#047857);
+}
+
+.purple{
+background:linear-gradient(135deg,#7c3aed,#6d28d9);
+}
+
+.orange{
+background:linear-gradient(135deg,#ea580c,#c2410c);
+}
+
+.dark{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.red{
+background:linear-gradient(135deg,#dc2626,#b91c1c);
+}
+
+input,
+select,
+button{
+
+width:100%;
+padding:14px;
+margin-top:12px;
+border-radius:14px;
+border:1px solid #dbeafe;
+font-size:15px;
+
+}
+
+button{
+
+border:none;
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+.primaryBtn{
+background:#2563eb;
+}
+
+.successBtn{
+background:#059669;
+}
+
+.orangeBtn{
+background:#ea580c;
+}
+
+.redBtn{
+background:#dc2626;
+}
+
+.darkBtn{
+background:#0f172a;
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+
+}
+
+table th,
+table td{
+
+padding:12px;
+border:1px solid #e2e8f0;
+text-align:center;
+
+}
+
+table th{
+
+background:#2563eb;
+color:white;
+
+}
+
+.deleteBtn{
+
+background:#dc2626;
+padding:8px 12px;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+
+}
+
+.footer{
+
+text-align:center;
+margin-top:30px;
+color:#64748b;
+
+}
+
+@media(max-width:768px){
+
+table{
+display:block;
+overflow-x:auto;
+}
+
+}
+
+</style>
+
+
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="POS Finance ERP Ultimate Progressive Web App">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>💳 POS Finance ERP Ultimate</h1>
+
+<p>Lifetime Profit Rolling Capital System</p>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="card">
+
+<h2>📊 Dashboard</h2>
+
+<div class="grid">
+
+<div class="box blue">
+<h3>Fixed Capital</h3>
+<p id="fixedCapitalShow">0 ৳</p>
+</div>
+
+<div class="box green">
+<h3>Running Capital</h3>
+<p id="runningCapitalShow">0 ৳</p>
+</div>
+
+<div class="box purple">
+<h3>Cash In Hand</h3>
+<p id="cashShow">0 ৳</p>
+</div>
+
+<div class="box orange">
+<h3>POS Return</h3>
+<p id="returnShow">0 ৳</p>
+</div>
+
+<div class="box dark">
+<h3>Total Asset</h3>
+<p id="assetShow">0 ৳</p>
+</div>
+
+<div class="box red">
+<h3>Lifetime Profit</h3>
+<p id="profitShow">0 ৳</p>
+</div>
+
+<div class="box blue">
+<h3>রাশিদুল Balance</h3>
+<p id="rashidulShow">0 ৳</p>
+</div>
+
+<div class="box purple">
+<h3>রুহুল আমিন Balance</h3>
+<p id="ruhulShow">0 ৳</p>
+</div>
+
+</div>
+
+<button class="redBtn" onclick="resetDashboard()">
+
+⚠️ Dashboard Reset
+
+</button>
+
+</div>
+
+<!-- FIXED CAPITAL -->
+
+<div class="card">
+
+<h2>💰 Fixed Capital Setup</h2>
+
+<input type="number" id="fixedCapitalInput" placeholder="Fixed Capital">
+
+<button class="primaryBtn" onclick="saveFixedCapital()">
+
+Save Fixed Capital
+
+</button>
+
+</div>
+
+<!-- CASH -->
+
+<div class="card">
+
+<h2>💵 Cash In Hand</h2>
+
+<input type="number" id="cashInput" placeholder="Current Cash">
+
+<button class="successBtn" onclick="saveCash()">
+
+Update Cash
+
+</button>
+
+</div>
+
+<!-- POS -->
+
+<div class="card">
+
+<h2>💳 POS Settlement Entry</h2>
+
+<input type="text" id="machineName" placeholder="POS Machine Name">
+
+<input type="number" id="settlementAmount" placeholder="Settlement Amount">
+
+<input type="number" id="chargePercent" placeholder="Charge %">
+
+<button class="primaryBtn" onclick="addSettlement()">
+
+Add Settlement
+
+</button>
+
+</div>
+
+<!-- WITHDRAW -->
+
+<div class="card">
+
+<h2>💸 Partner Withdraw</h2>
+
+<select id="partnerName">
+
+<option value="Rashidul">রাশিদুল</option>
+
+<option value="Ruhul Amin">রুহুল আমিন</option>
+
+</select>
+
+<input type="number" id="withdrawAmount" placeholder="Withdraw Amount">
+
+<button class="redBtn" onclick="withdrawProfit()">
+
+Withdraw
+
+</button>
+
+</div>
+
+<!-- ACTION -->
+
+<div class="card">
+
+<h2>📅 Day Final Save</h2>
+
+<button class="orangeBtn" onclick="closeDay()">
+
+✅ Day Close & Auto Reinvest
+
+</button>
+
+<button class="darkBtn" onclick="exportData()">
+
+💾 Export Backup
+
+</button>
+
+<input type="file" id="importFile" hidden onchange="importData(event)">
+
+<button class="primaryBtn" onclick="document.getElementById('importFile').click()">
+
+📂 Import Backup
+
+</button>
+
+<button class="successBtn" onclick="shareWhatsAppReport()">
+
+📲 WhatsApp Share
+
+</button>
+
+</div>
+
+<!-- SETTLEMENT HISTORY -->
+
+<div class="card">
+
+<h2>📜 Settlement History</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Machine</th>
+<th>Settlement</th>
+<th>Charge %</th>
+<th>Charge Amount</th>
+<th>Return Cash</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="settlementTable"></tbody>
+
+</table>
+
+</div>
+
+<!-- WITHDRAW HISTORY -->
+
+<div class="card">
+
+<h2>💸 Withdraw History</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Partner</th>
+<th>Amount</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="withdrawTable"></tbody>
+
+</table>
+
+</div>
+
+<!-- DAILY HISTORY -->
+
+<div class="card">
+
+<h2>📅 Daily History</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>Today Profit</th>
+<th>Lifetime Profit</th>
+<th>Withdraw</th>
+<th>Running Capital</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="dailyHistoryTable"></tbody>
+
+</table>
+
+</div>
+
+<div class="footer">
+
+🚀 Lifetime Profit ERP Stable Version
+
+</div>
+
+</div>
+
+<script>
+
+let fixedCapital =
+Number(localStorage.getItem("fixedCapital")) || 0;
+
+let runningCapital =
+Number(localStorage.getItem("runningCapital")) || 0;
+
+let cashInHand =
+Number(localStorage.getItem("cashInHand")) || 0;
+
+let lifetimeProfit =
+Number(localStorage.getItem("lifetimeProfit")) || 0;
+
+let settlements =
+JSON.parse(localStorage.getItem("settlements")) || [];
+
+let withdrawals =
+JSON.parse(localStorage.getItem("withdrawals")) || [];
+
+let dailyHistory =
+JSON.parse(localStorage.getItem("dailyHistory")) || [];
+
+function saveFixedCapital(){
+
+fixedCapital =
+Number(document.getElementById("fixedCapitalInput").value);
+
+runningCapital =
+fixedCapital;
+
+cashInHand =
+fixedCapital;
+
+localStorage.setItem(
+"fixedCapital",
+fixedCapital
+);
+
+localStorage.setItem(
+"runningCapital",
+runningCapital
+);
+
+localStorage.setItem(
+"cashInHand",
+cashInHand
+);
+
+updateUI();
+
+}
+
+function saveCash(){
+
+cashInHand =
+Number(document.getElementById("cashInput").value);
+
+localStorage.setItem(
+"cashInHand",
+cashInHand
+);
+
+updateUI();
+
+}
+
+function addSettlement(){
+
+let machine =
+document.getElementById("machineName").value;
+
+let amount =
+Number(document.getElementById("settlementAmount").value);
+
+let charge =
+Number(document.getElementById("chargePercent").value);
+
+if(!machine || !amount || !charge){
+
+alert("সব তথ্য পূরণ করুন");
+
+return;
+
+}
+
+let chargeAmount =
+amount * (charge / 100);
+
+let returnCash =
+amount - chargeAmount;
+
+settlements.push({
+
+date:new Date().toLocaleString(),
+machine,
+amount,
+charge,
+chargeAmount,
+returnCash
+
+});
+
+localStorage.setItem(
+"settlements",
+JSON.stringify(settlements)
+);
+
+updateUI();
+
+}
+
+function calculateTodayData(){
+
+let totalReturn = 0;
+
+settlements.forEach(item=>{
+
+totalReturn += item.returnCash;
+
+});
+
+let totalAsset =
+cashInHand + totalReturn;
+
+let todayProfit =
+totalAsset - runningCapital;
+
+if(todayProfit < 0){
+
+todayProfit = 0;
+
+}
+
+let totalWithdraw = 0;
+
+withdrawals.forEach(item=>{
+
+totalWithdraw += item.amount;
+
+});
+
+let rashidulWithdraw = 0;
+let ruhulWithdraw = 0;
+
+withdrawals.forEach(item=>{
+
+if(item.partner === "Rashidul"){
+
+rashidulWithdraw += item.amount;
+
+}
+
+if(item.partner === "Ruhul Amin"){
+
+ruhulWithdraw += item.amount;
+
+}
+
+});
+
+let totalLifetimeProfit =
+lifetimeProfit + todayProfit;
+
+let rashidulBalance =
+(totalLifetimeProfit / 3) - rashidulWithdraw;
+
+let ruhulBalance =
+((totalLifetimeProfit / 3) * 2) - ruhulWithdraw;
+
+if(rashidulBalance < 0){
+
+rashidulBalance = 0;
+
+}
+
+if(ruhulBalance < 0){
+
+ruhulBalance = 0;
+
+}
+
+return {
+
+totalReturn,
+totalAsset,
+todayProfit,
+totalWithdraw,
+totalLifetimeProfit,
+rashidulBalance,
+ruhulBalance
+
+};
+
+}
+
+function withdrawProfit(){
+
+let amount =
+Number(document.getElementById("withdrawAmount").value);
+
+let partner =
+document.getElementById("partnerName").value;
+
+let data =
+calculateTodayData();
+
+if(!amount){
+
+alert("Amount লিখুন");
+
+return;
+
+}
+
+if(
+partner === "Rashidul" &&
+amount > data.rashidulBalance
+){
+
+alert("রাশিদুলের Balance থেকে বেশি Withdraw করা যাবে না");
+
+return;
+
+}
+
+if(
+partner === "Ruhul Amin" &&
+amount > data.ruhulBalance
+){
+
+alert("রুহুল আমিনের Balance থেকে বেশি Withdraw করা যাবে না");
+
+return;
+
+}
+
+withdrawals.push({
+
+date:new Date().toLocaleString(),
+partner,
+amount
+
+});
+
+localStorage.setItem(
+"withdrawals",
+JSON.stringify(withdrawals)
+);
+
+updateUI();
+
+}
+
+function closeDay(){
+
+let data =
+calculateTodayData();
+
+lifetimeProfit += data.todayProfit;
+
+runningCapital +=
+(data.todayProfit - data.totalWithdraw);
+
+cashInHand =
+runningCapital;
+
+localStorage.setItem(
+"lifetimeProfit",
+lifetimeProfit
+);
+
+localStorage.setItem(
+"runningCapital",
+runningCapital
+);
+
+localStorage.setItem(
+"cashInHand",
+cashInHand
+);
+
+dailyHistory.push({
+
+date:new Date().toLocaleDateString(),
+todayProfit:data.todayProfit,
+lifetimeProfit:lifetimeProfit,
+withdraw:data.totalWithdraw,
+runningCapital:runningCapital
+
+});
+
+localStorage.setItem(
+"dailyHistory",
+JSON.stringify(dailyHistory)
+);
+
+settlements = [];
+withdrawals = [];
+
+localStorage.setItem(
+"settlements",
+JSON.stringify(settlements)
+);
+
+localStorage.setItem(
+"withdrawals",
+JSON.stringify(withdrawals)
+);
+
+updateUI();
+
+alert("✅ Day Closed Successfully");
+
+}
+
+function shareWhatsAppReport(){
+
+let data =
+calculateTodayData();
+
+let report = `
+
+📊 POS Finance ERP Report
+
+💰 Fixed Capital:
+${fixedCapital.toFixed(2)} ৳
+
+🔁 Running Capital:
+${runningCapital.toFixed(2)} ৳
+
+💵 Cash:
+${cashInHand.toFixed(2)} ৳
+
+💳 POS Return:
+${data.totalReturn.toFixed(2)} ৳
+
+🏦 Total Asset:
+${data.totalAsset.toFixed(2)} ৳
+
+📈 Lifetime Profit:
+${data.totalLifetimeProfit.toFixed(2)} ৳
+
+👤 রাশিদুল:
+${data.rashidulBalance.toFixed(2)} ৳
+
+👤 রুহুল আমিন:
+${data.ruhulBalance.toFixed(2)} ৳
+
+📅 Date:
+${new Date().toLocaleString()}
+
+`;
+
+window.open(
+
+`https://wa.me/8801980151963?text=${encodeURIComponent(report)}`
+
+);
+
+}
+
+function exportData(){
+
+let backupData = {
+
+fixedCapital,
+runningCapital,
+cashInHand,
+lifetimeProfit,
+settlements,
+withdrawals,
+dailyHistory
+
+};
+
+let blob =
+new Blob(
+[JSON.stringify(backupData,null,2)],
+{type:"application/json"}
+);
+
+let url =
+URL.createObjectURL(blob);
+
+let a =
+document.createElement("a");
+
+a.href = url;
+
+a.download =
+"POS_ERP_Backup.json";
+
+a.click();
+
+}
+
+function importData(event){
+
+let file =
+event.target.files[0];
+
+if(!file){
+
+return;
+
+}
+
+let reader =
+new FileReader();
+
+reader.onload = function(e){
+
+try{
+
+let data =
+JSON.parse(e.target.result);
+
+fixedCapital =
+data.fixedCapital || 0;
+
+runningCapital =
+data.runningCapital || 0;
+
+cashInHand =
+data.cashInHand || 0;
+
+lifetimeProfit =
+data.lifetimeProfit || 0;
+
+settlements =
+data.settlements || [];
+
+withdrawals =
+data.withdrawals || [];
+
+dailyHistory =
+data.dailyHistory || [];
+
+localStorage.setItem(
+"fixedCapital",
+fixedCapital
+);
+
+localStorage.setItem(
+"runningCapital",
+runningCapital
+);
+
+localStorage.setItem(
+"cashInHand",
+cashInHand
+);
+
+localStorage.setItem(
+"lifetimeProfit",
+lifetimeProfit
+);
+
+localStorage.setItem(
+"settlements",
+JSON.stringify(settlements)
+);
+
+localStorage.setItem(
+"withdrawals",
+JSON.stringify(withdrawals)
+);
+
+localStorage.setItem(
+"dailyHistory",
+JSON.stringify(dailyHistory)
+);
+
+updateUI();
+
+alert("✅ Backup Imported");
+
+}catch{
+
+alert("❌ Invalid Backup File");
+
+}
+
+};
+
+reader.readAsText(file);
+
+}
+
+function deleteSettlement(index){
+
+if(confirm("Delete করবেন?")){
+
+settlements.splice(index,1);
+
+localStorage.setItem(
+"settlements",
+JSON.stringify(settlements)
+);
+
+updateUI();
+
+}
+
+}
+
+function deleteWithdraw(index){
+
+if(confirm("Delete করবেন?")){
+
+withdrawals.splice(index,1);
+
+localStorage.setItem(
+"withdrawals",
+JSON.stringify(withdrawals)
+);
+
+updateUI();
+
+}
+
+}
+
+function deleteDaily(index){
+
+if(confirm("Delete করবেন?")){
+
+dailyHistory.splice(index,1);
+
+localStorage.setItem(
+"dailyHistory",
+JSON.stringify(dailyHistory)
+);
+
+updateUI();
+
+}
+
+}
+
+function resetDashboard(){
+
+if(confirm("সব Reset করতে চান?")){
+
+localStorage.clear();
+
+location.reload();
+
+}
+
+}
+
+function updateUI(){
+
+let data =
+calculateTodayData();
+
+document.getElementById(
+"fixedCapitalShow"
+).innerText =
+fixedCapital.toFixed(2)+" ৳";
+
+document.getElementById(
+"runningCapitalShow"
+).innerText =
+runningCapital.toFixed(2)+" ৳";
+
+document.getElementById(
+"cashShow"
+).innerText =
+cashInHand.toFixed(2)+" ৳";
+
+document.getElementById(
+"returnShow"
+).innerText =
+data.totalReturn.toFixed(2)+" ৳";
+
+document.getElementById(
+"assetShow"
+).innerText =
+data.totalAsset.toFixed(2)+" ৳";
+
+document.getElementById(
+"profitShow"
+).innerText =
+data.totalLifetimeProfit.toFixed(2)+" ৳";
+
+document.getElementById(
+"rashidulShow"
+).innerText =
+data.rashidulBalance.toFixed(2)+" ৳";
+
+document.getElementById(
+"ruhulShow"
+).innerText =
+data.ruhulBalance.toFixed(2)+" ৳";
+
+
+// SETTLEMENT HISTORY
+
+let settlementHTML = "";
+
+settlements.forEach((item,index)=>{
+
+settlementHTML += `
+
+<tr>
+
+<td>${item.date}</td>
+<td>${item.machine}</td>
+<td>${item.amount.toFixed(2)} ৳</td>
+<td>${item.charge}%</td>
+<td>${item.chargeAmount.toFixed(2)} ৳</td>
+<td>${item.returnCash.toFixed(2)} ৳</td>
+
+<td>
+
+<button class="deleteBtn"
+onclick="deleteSettlement(${index})">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById(
+"settlementTable"
+).innerHTML =
+settlementHTML;
+
+
+// WITHDRAW HISTORY
+
+let withdrawHTML = "";
+
+withdrawals.forEach((item,index)=>{
+
+withdrawHTML += `
+
+<tr>
+
+<td>${item.date}</td>
+<td>${item.partner}</td>
+<td>${item.amount.toFixed(2)} ৳</td>
+
+<td>
+
+<button class="deleteBtn"
+onclick="deleteWithdraw(${index})">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById(
+"withdrawTable"
+).innerHTML =
+withdrawHTML;
+
+
+// DAILY HISTORY
+
+let dailyHTML = "";
+
+dailyHistory.forEach((item,index)=>{
+
+dailyHTML += `
+
+<tr>
+
+<td>${item.date}</td>
+<td>${item.todayProfit.toFixed(2)} ৳</td>
+<td>${item.lifetimeProfit.toFixed(2)} ৳</td>
+<td>${item.withdraw.toFixed(2)} ৳</td>
+<td>${item.runningCapital.toFixed(2)} ৳</td>
+
+<td>
+
+<button class="deleteBtn"
+onclick="deleteDaily(${index})">
+
+Delete
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById(
+"dailyHistoryTable"
+).innerHTML =
+dailyHTML;
+
+}
+
+updateUI();
+
+</script>
+
+
+<script>
+if ('serviceWorker' in navigator) {
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('./service-worker.js')
+.then(reg => console.log('Service Worker Registered'))
+.catch(err => console.log('Service Worker Error', err));
+});
+}
+</script>
+
+</body>
+</html>
