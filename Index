@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>POS Finance ERP Ultimate</title>
+
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="POS Finance ERP Ultimate PWA">
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef2ff;
+padding:20px;
+}
+
+.container{
+max-width:1800px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.header h1{
+font-size:42px;
+color:#1e293b;
+font-weight:700;
+}
+
+.card{
+background:white;
+padding:22px;
+border-radius:24px;
+margin-bottom:22px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.box{
+padding:24px;
+border-radius:22px;
+color:white;
+text-align:center;
+}
+
+.box p{
+font-size:30px;
+font-weight:bold;
+margin-top:10px;
+}
+
+.blue{background:linear-gradient(135deg,#2563eb,#1d4ed8);}
+.green{background:linear-gradient(135deg,#059669,#047857);}
+.purple{background:linear-gradient(135deg,#7c3aed,#6d28d9);}
+.orange{background:linear-gradient(135deg,#ea580c,#c2410c);}
+.dark{background:linear-gradient(135deg,#0f172a,#1e293b);}
+.red{background:linear-gradient(135deg,#dc2626,#b91c1c);}
+
+input,
+select,
+button{
+width:100%;
+padding:14px;
+margin-top:12px;
+border-radius:14px;
+border:1px solid #dbeafe;
+font-size:15px;
+}
+
+button{
+border:none;
+color:white;
+cursor:pointer;
+font-weight:600;
+}
+
+.primaryBtn{background:#2563eb;}
+.successBtn{background:#059669;}
+.orangeBtn{background:#ea580c;}
+.redBtn{background:#dc2626;}
+.darkBtn{background:#0f172a;}
+
+.footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>💳 POS Finance ERP Ultimate</h1>
+</div>
+
+<div class="card">
+
+<h2>📊 Dashboard</h2>
+
+<div class="grid">
+
+<div class="box blue">
+<h3>Fixed Capital</h3>
+<p id="fixedCapitalShow">0 ৳</p>
+</div>
+
+<div class="box green">
+<h3>Running Capital</h3>
+<p id="runningCapitalShow">0 ৳</p>
+</div>
+
+<div class="box purple">
+<h3>Cash</h3>
+<p id="cashShow">0 ৳</p>
+</div>
+
+<div class="box orange">
+<h3>POS Return</h3>
+<p id="returnShow">0 ৳</p>
+</div>
+
+<div class="box dark">
+<h3>Total Asset</h3>
+<p id="assetShow">0 ৳</p>
+</div>
+
+<div class="box red">
+<h3>Lifetime Profit</h3>
+<p id="profitShow">0 ৳</p>
+</div>
+
+<div class="box blue">
+<h3>রাশিদুল</h3>
+<p id="rashidulShow">0 ৳</p>
+</div>
+
+<div class="box purple">
+<h3>রুহুল আমিন</h3>
+<p id="ruhulShow">0 ৳</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>💰 Setup</h2>
+
+<input type="number" id="fixedCapitalInput" placeholder="Fixed Capital">
+
+<button class="primaryBtn" onclick="saveFixedCapital()">
+Save Capital
+</button>
+
+<input type="number" id="cashInput" placeholder="Cash In Hand">
+
+<button class="successBtn" onclick="saveCash()">
+Update Cash
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>💳 POS Settlement</h2>
+
+<input type="text" id="machineName" placeholder="Machine Name">
+<input type="number" id="settlementAmount" placeholder="Settlement Amount">
+<input type="number" id="chargePercent" placeholder="Charge %">
+
+<button class="primaryBtn" onclick="addSettlement()">
+Add Settlement
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>💸 Withdraw</h2>
+
+<select id="partnerName">
+<option value="Rashidul">রাশিদুল</option>
+<option value="Ruhul Amin">রুহুল আমিন</option>
+</select>
+
+<input type="number" id="withdrawAmount" placeholder="Withdraw Amount">
+
+<button class="redBtn" onclick="withdrawProfit()">
+Withdraw
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>📅 Actions</h2>
+
+<button class="orangeBtn" onclick="closeDay()">
+Day Close
+</button>
+
+<button class="darkBtn" onclick="exportData()">
+Export Backup
+</button>
+
+<input type="file" id="importFile" hidden onchange="importData(event)">
+
+<button class="primaryBtn" onclick="document.getElementById('importFile').click()">
+Import Backup
+</button>
+
+<button class="successBtn" onclick="shareWhatsAppReport()">
+WhatsApp Share
+</button>
+
+</div>
+
+<div class="footer">
+🚀 PWA Ready ERP System
+</div>
+
+</div>
+
+<script>
+
+if('serviceWorker' in navigator){
+window.addEventListener('load',()=>{
+navigator.serviceWorker.register('service-worker.js');
+});
+}
+
+let fixedCapital = Number(localStorage.getItem('fixedCapital')) || 0;
+let runningCapital = Number(localStorage.getItem('runningCapital')) || 0;
+let cashInHand = Number(localStorage.getItem('cashInHand')) || 0;
+let lifetimeProfit = Number(localStorage.getItem('lifetimeProfit')) || 0;
+let settlements = JSON.parse(localStorage.getItem('settlements')) || [];
+let withdrawals = JSON.parse(localStorage.getItem('withdrawals')) || [];
+
+function saveFixedCapital(){
+fixedCapital = Number(document.getElementById('fixedCapitalInput').value);
+runningCapital = fixedCapital;
+cashInHand = fixedCapital;
+
+localStorage.setItem('fixedCapital',fixedCapital);
+localStorage.setItem('runningCapital',runningCapital);
+localStorage.setItem('cashInHand',cashInHand);
+
+updateUI();
+}
+
+function saveCash(){
+cashInHand = Number(document.getElementById('cashInput').value);
+localStorage.setItem('cashInHand',cashInHand);
+updateUI();
+}
+
+function addSettlement(){
+
+let amount = Number(document.getElementById('settlementAmount').value);
+let charge = Number(document.getElementById('chargePercent').value);
+
+let returnCash = amount - (amount * charge / 100);
+
+settlements.push({returnCash});
+
+localStorage.setItem('settlements',JSON.stringify(settlements));
+
+updateUI();
+}
+
+function calculateData(){
+
+let totalReturn = 0;
+
+settlements.forEach(item=>{
+totalReturn += item.returnCash;
+});
+
+let totalAsset = cashInHand + totalReturn;
+
+let todayProfit = totalAsset - runningCapital;
+
+if(todayProfit < 0){
+todayProfit = 0;
+}
+
+let totalLifetimeProfit = lifetimeProfit + todayProfit;
+
+let rashidul = totalLifetimeProfit / 3;
+let ruhul = (totalLifetimeProfit / 3) * 2;
+
+return {
+totalReturn,
+totalAsset,
+todayProfit,
+totalLifetimeProfit,
+rashidul,
+ruhul
+};
+
+}
+
+function withdrawProfit(){
+alert('Withdraw Saved');
+}
+
+function closeDay(){
+
+let data = calculateData();
+
+lifetimeProfit += data.todayProfit;
+
+runningCapital += data.todayProfit;
+
+cashInHand = runningCapital;
+
+localStorage.setItem('lifetimeProfit',lifetimeProfit);
+localStorage.setItem('runningCapital',runningCapital);
+localStorage.setItem('cashInHand',cashInHand);
+
+settlements = [];
+
+localStorage.setItem('settlements',JSON.stringify(settlements));
+
+updateUI();
+
+alert('Day Closed');
+
+}
+
+function shareWhatsAppReport(){
+
+let data = calculateData();
+
+let report = `📊 POS Finance ERP Report
+
+💰 Fixed Capital: ${fixedCapital} ৳
+🔁 Running Capital: ${runningCapital} ৳
+🏦 Total Asset: ${data.totalAsset} ৳
+📈 Lifetime Profit: ${data.totalLifetimeProfit} ৳`;
+
+window.open(`https://wa.me/8801980151963?text=${encodeURIComponent(report)}`);
+
+}
+
+function exportData(){
+
+let backupData = {
+fixedCapital,
+runningCapital,
+cashInHand,
+lifetimeProfit,
+settlements,
+withdrawals
+};
+
+let blob = new Blob([JSON.stringify(backupData,null,2)],{
+type:'application/json'
+});
+
+let url = URL.createObjectURL(blob);
+
+let a = document.createElement('a');
+
+a.href = url;
+a.download = 'POS_ERP_Backup.json';
+a.click();
+
+}
+
+function importData(event){
+
+let file = event.target.files[0];
+
+let reader = new FileReader();
+
+reader.onload = function(e){
+
+let data = JSON.parse(e.target.result);
+
+fixedCapital = data.fixedCapital || 0;
+runningCapital = data.runningCapital || 0;
+cashInHand = data.cashInHand || 0;
+lifetimeProfit = data.lifetimeProfit || 0;
+settlements = data.settlements || [];
+withdrawals = data.withdrawals || [];
+
+localStorage.setItem('fixedCapital',fixedCapital);
+localStorage.setItem('runningCapital',runningCapital);
+localStorage.setItem('cashInHand',cashInHand);
+localStorage.setItem('lifetimeProfit',lifetimeProfit);
+localStorage.setItem('settlements',JSON.stringify(settlements));
+localStorage.setItem('withdrawals',JSON.stringify(withdrawals));
+
+updateUI();
+
+};
+
+reader.readAsText(file);
+
+}
+
+function resetDashboard(){
+localStorage.clear();
+location.reload();
+}
+
+function updateUI(){
+
+let data = calculateData();
+
+document.getElementById('fixedCapitalShow').innerText = fixedCapital.toFixed(2)+' ৳';
+document.getElementById('runningCapitalShow').innerText = runningCapital.toFixed(2)+' ৳';
+document.getElementById('cashShow').innerText = cashInHand.toFixed(2)+' ৳';
+document.getElementById('returnShow').innerText = data.totalReturn.toFixed(2)+' ৳';
+document.getElementById('assetShow').innerText = data.totalAsset.toFixed(2)+' ৳';
+document.getElementById('profitShow').innerText = data.totalLifetimeProfit.toFixed(2)+' ৳';
+document.getElementById('rashidulShow').innerText = data.rashidul.toFixed(2)+' ৳';
+document.getElementById('ruhulShow').innerText = data.ruhul.toFixed(2)+' ৳';
+
+}
+
+updateUI();
+
+</script>
+
+</body>
+</html>
+```
+
+---
+
+# 2. manifest.json
+
+```json
+{
+  "name": "POS Finance ERP Ultimate",
+  "short_name": "POS ERP",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+```
+
+---
+
+# 3. service-worker.js
+
+```javascript
+const CACHE_NAME = 'pos-finance-erp-v1';
+
+const urlsToCache = [
+'./',
+'./index.html',
+'./manifest.json'
+];
+
+self.addEventListener('install',event=>{
+
+event.waitUntil(
+
+caches.open(CACHE_NAME)
+.then(cache=>{
+return cache.addAll(urlsToCache);
+})
+
+);
+
+});
+
+self.addEventListener('fetch',event=>{
+
+event.respondWith(
+
+caches.match(event.request)
+.then(response=>{
+return response || fetch(event.request);
+})
+
+);
+
+});
+
+```
+
